@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Success</title>
+	</head>
+	<body>
+		{% load humanize %}
+		<h1>Welcome, {{this_user.email }}!</h1>
+		<table>
+			<tr><th>E-mail</th>
+				<th>Created At</th>
+			</tr>
+			{% for user in users %}
+				<tr>
+					<td>{{user.email}}</td>
+					<td>{{user.created_at|naturalday }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+		<a href="{% url 'logout' %}">Log out</a>
+	</body>
+</html>

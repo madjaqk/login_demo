@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Log In</title>
+	</head>
+	<body>
+		{% if messages %}
+		<ul class="messages">
+		    {% for message in messages %}
+		    <li>{{ message }}</li>
+		    {% endfor %}
+		</ul>
+		{% endif %}
+		<h1>Register</h1>
+		<form action="{% url 'register' %}" method="POST">
+			{% csrf_token %}
+			<p>E-mail: <input type="text" name="email"></p>
+			<p>Password: <input type="text" name="password"></p>
+			<p>Confirm password: <input type="text" name="confirm"></p>
+			<p><input type="submit" value="Register"></p>
+		</form>
+		<h1>Log In</h1>
+		<form action="{% url 'login' %}" method="POST">
+			{% csrf_token %}
+			<p>E-mail: <input type="text" name="email"></p>
+			<p>Password: <input type="text" name="password"></p>
+			<p><input type="submit" value="Log In"></p>
+		</form>
+	</body>
+</html>
